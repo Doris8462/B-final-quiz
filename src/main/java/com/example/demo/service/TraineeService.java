@@ -34,4 +34,8 @@ public class TraineeService {
         TraineeEntity savedTraineeEntity = traineeRepository.save(traineeEntity);
         return Convert.convert(savedTraineeEntity,Trainee.class);
     }
+
+    public void deleteTrainee(Long id) {
+        traineeRepository.deleteById(id);
+    }
 }
