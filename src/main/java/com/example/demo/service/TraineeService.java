@@ -20,19 +20,20 @@ public class TraineeService {
 
     public Trainee getTraineeById(Long id) {
         TraineeEntity traineeEntity = traineeRepository.findById(id).get();
-        return Convert.convert(traineeEntity,Trainee.class);
+        return Convert.convert(traineeEntity, Trainee.class);
     }
+
     public List<Trainee> getAllTrainees(String grouped) {
         List<TraineeEntity> trainees = traineeRepository.findAll();
         return trainees.stream()
-                .map(trainee -> Convert.convert(trainee,Trainee.class))
+                .map(trainee -> Convert.convert(trainee, Trainee.class))
                 .collect(Collectors.toList());
     }
 
     public Trainee createTrainee(Trainee trainee) {
-        TraineeEntity traineeEntity = Convert.convert(trainee,TraineeEntity.class);
+        TraineeEntity traineeEntity = Convert.convert(trainee, TraineeEntity.class);
         TraineeEntity savedTraineeEntity = traineeRepository.save(traineeEntity);
-        return Convert.convert(savedTraineeEntity,Trainee.class);
+        return Convert.convert(savedTraineeEntity, Trainee.class);
     }
 
     public void deleteTrainee(Long id) {
