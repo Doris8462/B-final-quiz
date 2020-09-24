@@ -43,6 +43,7 @@ public class GroupService {
     public List<Group> Grouping() {
         List<TrainerEntity> trainerEntities = trainerRepository.findAll();
         List<TraineeEntity> traineeEntities = traineeRepository.findAll();
+        groupRepository.deleteAll();
         List<GroupEntity> groups = new ArrayList<>();
         if (trainerEntities.size() < 2) {
             throw new GroupingError(ExceptionEnum.DIVIDE_GROUP_EXCEPTION);
