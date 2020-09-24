@@ -27,7 +27,7 @@ public class TraineeController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<Trainee> getTrainees(@RequestParam String grouped) {
+    public List<Trainee> getTrainees(@RequestParam Boolean grouped) {
         return traineeService.getAllTrainees(grouped);
 
     }

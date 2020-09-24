@@ -23,8 +23,8 @@ public class TraineeService {
         return Convert.convert(traineeEntity, Trainee.class);
     }
 
-    public List<Trainee> getAllTrainees(String grouped) {
-        List<TraineeEntity> trainees = traineeRepository.findAll();
+    public List<Trainee> getAllTrainees(Boolean grouped) {
+        List<TraineeEntity> trainees = traineeRepository.findAllByGrouped(grouped);
         return trainees.stream()
                 .map(trainee -> Convert.convert(trainee, Trainee.class))
                 .collect(Collectors.toList());

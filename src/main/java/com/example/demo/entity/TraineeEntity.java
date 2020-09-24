@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,4 +23,8 @@ public class TraineeEntity {
     private String email;
     private String github;
     private String zoomId;
+    @JsonIgnore
+    private Long groupId;
+    @JsonIgnore
+    private Boolean grouped;
 }

@@ -34,6 +34,16 @@ public class GlobalExceptionHandler {
                 .body(errorResult);
     }
 
+    @ExceptionHandler(GroupingError.class)
+    public ResponseEntity groupingException(GroupingError groupingError) {
+        ErrorResult errorResult = getErrorResult(HttpStatus.BAD_REQUEST.value(),
+                ExceptionEnum.DIVIDE_GROUP_EXCEPTION.getError(),
+                ExceptionEnum.DIVIDE_GROUP_EXCEPTION.getMessage(),
+                Instant.now());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(errorResult);
+    }
+
     @ExceptionHandler(ConstraintViolationException.class)
     public ResponseEntity constraintException(ConstraintViolationException ex) {
         ErrorResult errorResult = getErrorResult(HttpStatus.BAD_REQUEST.value(),
